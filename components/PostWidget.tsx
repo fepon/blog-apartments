@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
 
-const PostWidget: NextPage= () => {
+
+const PostWidget: React.FC= () => {
   return (
     <div>PostWidget</div>
   )
