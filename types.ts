@@ -6,7 +6,7 @@ export interface AuthorPhotoType {
   url: string
 }
 
-export interface AuthorType{
+export interface AuthorType {
   photo: AuthorPhotoType
   name: string
 }
@@ -18,4 +18,9 @@ export interface PostType {
   excerpt: string
   featuredImage: PostImageType
   createdAt: string
+}
+
+export interface CategoryType {
+  slug: string
+  name: string
 }

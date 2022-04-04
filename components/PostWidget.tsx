@@ -13,15 +13,11 @@ const PostWidget: React.FC<{ categories: string; slug: string }> = ({
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((result) =>
-        setRelatedPosts(result)
-      )
+      getSimilarPosts().then((result) => setRelatedPosts(result))
     } else {
       getRecentPosts().then((result) => setRelatedPosts(result))
     }
   }, [slug])
-
-  console.log(relatedPosts)
 
   return (
     <div className="mb-8 rounded-lg bg-white p-8 shadow-lg">
@@ -40,10 +36,10 @@ const PostWidget: React.FC<{ categories: string; slug: string }> = ({
             />
           </div>
           <div className="ml-4 flex-grow">
-            <p className="text-gray-500 font-xs">
+            <p className="font-xs text-gray-500">
               {moment(post.createdAt).format('MMM, D, YYYY')}
             </p>
-            <Link href={`/posts/${post.slug}`} key={post.title} >
+            <Link href={`/posts/${post.slug}`} key={post.title}>
               {post.title}
             </Link>
           </div>
