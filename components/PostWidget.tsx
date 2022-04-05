@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { getRecentPosts, getSimilarPosts } from '@services/index'
 import { PostType } from 'types'
 
-const PostWidget: React.FC<{ categories: string; slug: string }> = ({
+const PostWidget: React.FC<{ categories: string[]; slug: string }> = ({
   categories,
   slug,
 }) => {
@@ -13,7 +13,7 @@ const PostWidget: React.FC<{ categories: string; slug: string }> = ({
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts().then((result) => setRelatedPosts(result))
+      getSimilarPosts(categories, slug).then((result) => setRelatedPosts(result))
     } else {
       getRecentPosts().then((result) => setRelatedPosts(result))
     }

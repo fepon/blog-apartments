@@ -21,7 +21,7 @@ const Home: NextPage<{posts: PostType[]}> = ({posts}) => {
 
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 lg:sticky">
-            <PostWidget />
+            <PostWidget/>
             <Categories />
           </div>
         </div>
