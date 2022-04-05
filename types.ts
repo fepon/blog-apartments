@@ -53,3 +53,11 @@ export interface ImageFragmentProps {
 export interface ObjFragmentProps
   extends TextFragmentProps,
     ImageFragmentProps {}
+
+export interface AuthorType{
+  photo:{
+    url: string
+  }
+  name: string
+  bio: string
+}
