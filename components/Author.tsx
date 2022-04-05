@@ -14,8 +14,8 @@ const Author: React.FC<{ author: AuthorType }> = ({ author }) => {
           className="rounded-full align-middle"
         />
       </div>
-        <h3 className="my-4 text-xl font-bold text-white">{author.name}</h3>
-        <p className="text-white text-lg">{author.bio}</p>
+      <h3 className="my-4 text-xl font-bold text-white">{author.name}</h3>
+      <p className="text-lg text-white">{author.bio}</p>
     </div>
   )
 }

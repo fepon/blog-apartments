@@ -9,10 +9,12 @@ export interface AuthorPhotoType {
 export interface AuthorType {
   photo: AuthorPhotoType
   name: string
+  bio: string
 }
 
 export interface PostType {
-  categories: string
+  node: any
+  categories: CategoryType[]
   author: AuthorType
   slug: string
   title: string
@@ -54,10 +56,9 @@ export interface ObjFragmentProps
   extends TextFragmentProps,
     ImageFragmentProps {}
 
-export interface AuthorType{
-  photo:{
-    url: string
-  }
-  name: string
-  bio: string
+export interface FormDataType {
+  name: string | null
+  email: string | null
+  comment?: string | null
+  storeData: boolean | string | null
 }

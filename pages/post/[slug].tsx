@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import { getPostDetails, getPosts } from '@services/index'
 import {
@@ -8,11 +9,18 @@ import {
   Author,
   Comments,
   CommentsForm,
+  Loader,
 } from '@components/index'
-import { PostGetStaticPropsType, PostType } from 'types'
+import { PostType } from 'types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 const PostDetails: React.FC<{ post: PostType }> = ({ post }) => {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <Loader />
+  }
+
   return (
     <div className="container mx-auto mb-8 px-10">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -39,7 +47,7 @@ const PostDetails: React.FC<{ post: PostType }> = ({ post }) => {
 export default PostDetails
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const data = await getPostDetails(params.slug)
+  const data = await getPostDetails(params?.slug as string)
 
   return {
     props: {
@@ -52,7 +60,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts()
 
   return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
+    paths: posts.map(({ node: { slug } }: { node: { slug: string } }) => ({
+      params: { slug },
+    })),
+    fallback: true,
   }
 }
