@@ -29,7 +29,7 @@ const Comments: React.FC<{ slug: string }> = ({ slug }) => {
               className="mb-4 border-b border-gray-100 pb-4"
             >
               <p className="pb-4">
-                <span className="font-semibold">{comment.name}</span> on{' '}
+                <span className="font-semibold">{comment.name}</span> - Publicado el{' '}
                 {moment(comment.createdAt).format('MMM DD, YYYY')}
               </p>
               <p className="w-full whitespace-pre-line text-gray-600">

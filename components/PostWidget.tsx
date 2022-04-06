@@ -29,7 +29,7 @@ const PostWidget: React.FC<{ categories?: string[]; slug?: string }> = ({
   return (
     <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
       <h3 className="mb-8 border-b pb-4 text-xl font-semibold">
-        {slug ? 'Related Posts' : 'Recent Posts'}
+        {slug ? 'Publicaciones Relacionadas' : 'Publicaciones Recientes'}
       </h3>
       {relatedPosts.map((post, index) => (
         <div key={index} className="mb-4 flex w-full items-center">
@@ -49,7 +49,7 @@ const PostWidget: React.FC<{ categories?: string[]; slug?: string }> = ({
               {moment(post.createdAt).format('MMM DD, YYYY')}
             </p>
             <Link href={`/post/${post.slug}`} key={index}>
-              <p className="text-md">{post.title}</p>
+              <p className="text-md cursor-pointer">{post.title}</p>
             </Link>
           </div>
         </div>

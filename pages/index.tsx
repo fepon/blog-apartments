@@ -8,6 +8,9 @@ import { FeaturedPosts } from '../sections/index'
 const Home: NextPage<{ posts: PostType[] }> = ({ posts }) => {
   return (
     <div className="container mx-auto mb-8 px-10">
+      <h1 className="mb-10 text-center text-5xl font-bold text-white ">
+        Catálogo de Departamentos
+      </h1>
       <FeaturedPosts />
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
